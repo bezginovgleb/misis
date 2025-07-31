@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Solver</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Exam Solver</h1>
+            <nav>
+                <a href="upload.html" class="upload-btn">Upload Task</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="tasks-section">
+            <h2>Available Tasks</h2>
+            <div id="tasks-container">
+                <p class="no-tasks">No tasks available. <a href="upload.html">Upload your first task!</a></p>
+            </div>
+        </div>
+
+        <div id="answer-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Submit Answer</h3>
+                    <button class="close-btn" onclick="closeAnswerModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p id="modal-question"></p>
+                    <input type="text" id="answer-input" placeholder="Enter your answer">
+                    <div class="modal-actions">
+                        <button onclick="submitAnswer()" class="submit-btn">Submit</button>
+                        <button onclick="closeAnswerModal()" class="cancel-btn">Cancel</button>
+                    </div>
+                </div>
+                <div id="result-display" class="result hidden">
+                    <div class="result-content">
+                        <h4 id="result-title"></h4>
+                        <p id="result-message"></p>
+                        <button onclick="closeAnswerModal()" class="ok-btn">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

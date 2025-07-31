@@ -1,0 +1,473 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 20px;
+}
+
+h1 {
+    color: #4a5568;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+nav a {
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+}
+
+nav a:hover {
+    background: #5a67d8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.back-btn {
+    background: #4a5568 !important;
+}
+
+.back-btn:hover {
+    background: #2d3748 !important;
+}
+
+/* Main Content */
+main {
+    padding: 2rem 20px;
+}
+
+/* Tasks Section */
+.tasks-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.tasks-section h2 {
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.no-tasks {
+    text-align: center;
+    color: #718096;
+    font-size: 1.1rem;
+    padding: 2rem;
+}
+
+.no-tasks a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.no-tasks a:hover {
+    text-decoration: underline;
+}
+
+/* Task Cards */
+.task-card {
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.task-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.task-card h3 {
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.task-card p {
+    color: #4a5568;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.task-media {
+    margin: 1rem 0;
+}
+
+.task-media img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-media audio {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.solve-btn {
+    background: #48bb78;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.solve-btn:hover {
+    background: #38a169;
+    transform: translateY(-1px);
+}
+
+/* Upload Form */
+.upload-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+}
+
+.task-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.help-text {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.file-preview {
+    margin-top: 0.5rem;
+    padding: 1rem;
+    background: #f7fafc;
+    border-radius: 6px;
+    border: 2px dashed #e2e8f0;
+    text-align: center;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.file-preview img {
+    max-width: 200px;
+    max-height: 150px;
+    border-radius: 4px;
+}
+
+.file-preview audio {
+    width: 100%;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.submit-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #5a67d8;
+    transform: translateY(-1px);
+}
+
+.reset-btn {
+    background: #e2e8f0;
+    color: #4a5568;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    background: #cbd5e0;
+}
+
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-header h3 {
+    color: #2d3748;
+    margin: 0;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #718096;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    color: #4a5568;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-body p {
+    margin-bottom: 1rem;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+.modal-body input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.modal-body input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.cancel-btn {
+    background: #e2e8f0;
+    color: #4a5568;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+    background: #cbd5e0;
+}
+
+/* Result Display */
+.result {
+    background: #f7fafc;
+    border-top: 1px solid #e2e8f0;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.result-content h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.result-content.correct h4 {
+    color: #38a169;
+}
+
+.result-content.incorrect h4 {
+    color: #e53e3e;
+}
+
+.result-content p {
+    margin-bottom: 1rem;
+    color: #4a5568;
+}
+
+.ok-btn {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ok-btn:hover {
+    background: #5a67d8;
+}
+
+/* Success Message */
+.success-message {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+}
+
+.success-message h3 {
+    color: #38a169;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.success-message p {
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+}
+
+.go-back-btn {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.go-back-btn:hover {
+    background: #5a67d8;
+    transform: translateY(-1px);
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    header .container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+}
