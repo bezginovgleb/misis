@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Task - Exam Solver</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Upload Task</h1>
+            <nav>
+                <a href="index.html" class="back-btn">← Back to Tasks</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="upload-section">
+            <form id="task-form" class="task-form">
+                <div class="form-group">
+                    <label for="task-title">Task Title:</label>
+                    <input type="text" id="task-title" name="title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-description">Task Description:</label>
+                    <textarea id="task-description" name="description" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-image">Upload Image (optional):</label>
+                    <input type="file" id="task-image" name="image" accept="image/*">
+                    <div id="image-preview" class="file-preview"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-audio">Upload Audio (optional):</label>
+                    <input type="file" id="task-audio" name="audio" accept="audio/*">
+                    <div id="audio-preview" class="file-preview"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="correct-answer">Correct Answer:</label>
+                    <input type="text" id="correct-answer" name="answer" required>
+                    <small class="help-text">This will be used to check if the answer is correct</small>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Add Task</button>
+                    <button type="reset" class="reset-btn">Clear Form</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="success-message" class="success-message hidden">
+            <h3>✓ Task Added Successfully!</h3>
+            <p>Your task has been added and is now available on the main page.</p>
+            <a href="index.html" class="go-back-btn">Go to Main Page</a>
+        </div>
+    </main>
+
+    <script src="upload.js"></script>
+</body>
+</html>
