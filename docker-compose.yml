@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7.0
+    container_name: exam_platform_mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: exam_platform
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - exam_platform
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: exam_platform_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGODB_URL=mongodb://mongodb:27017
+      - DATABASE_NAME=exam_platform
+      - SECRET_KEY=your-secret-key-change-in-production
+    volumes:
+      - ./backend/uploads:/app/uploads
+      - ./backend:/app
+    depends_on:
+      - mongodb
+    networks:
+      - exam_platform
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: exam_platform_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000/api
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    networks:
+      - exam_platform
+    command: npm start
+
+volumes:
+  mongodb_data:
+
+networks:
+  exam_platform:
+    driver: bridge
